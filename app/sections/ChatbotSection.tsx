@@ -156,7 +156,7 @@ export default function ChatbotSection() {
   return (
     <div
       ref={chatbotRef}
-      className="flex flex-col bg-white rounded-2xl border border-gray-200 overflow-hidden scroll-mt-32"
+      className="flex flex-col bg-white rounded-2xl border border-gray-200 overflow-hidden scroll-mt-32 font-mono-nl"
     >
       {/* Display Area Header with Collapse Button - Only show when there's a message */}
       <div className="flex items-center justify-between  px-6 py-3">

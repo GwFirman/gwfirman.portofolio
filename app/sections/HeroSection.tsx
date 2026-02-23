@@ -1,132 +1,145 @@
 "use client";
 import { MorphingText } from "@/components/ui/morphing-text";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import {
+  ChevronDown,
+  Briefcase,
+  MapPin,
+  Mail,
+  Clock,
+  Globe,
+  Code2,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import ChatbotSection from "@/app/sections/ChatbotSection";
+import GitHubContributionGraph from "@/components/GitHubContributionGraph";
+import {
+  RotatingText,
+  RotatingTextContainer,
+} from "@/components/animate-ui/primitives/texts/rotating";
+import { Magnetic } from "@/components/animate-ui/primitives/effects/magnetic";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
+import ScrollDownButton from "@/components/ScrollDownButton";
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-[100dvh] pt-20 pb-8 px-4 sm:px-8 lg:px-16 flex flex-col items-center justify-between overflow-hidden">
+    <div className="relative min-h-[100dvh] pb-8 px-4 pt-16 sm:pt-0 lg:pt-24 sm:px-8 lg:px-16 flex flex-col items-center justify-between overflow-hidden">
       <Navigation />
-
-      {/* Gradient Background with Grid */}
-      <div className="absolute inset-0 -z-10 ">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50" />
-        <svg
-          className="absolute inset-0 w-full h-full opacity-40"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#3B82F6"
-                strokeWidth="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-        {/* Gradient Fade for Grid */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
-      </div>
 
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col justify-center">
         {/* Hero Content */}
-        <div className="text-center mb-6 sm:mb-10 lg:mb-12">
-          <MorphingText
-            className="text-blue-500 font-mono"
-            texts={[
-              "Hello",
-              "Bonjour",
-              "Hola",
-              "你好",
-              "こんにちは",
-              "안녕하세요",
-              "مرحبا",
-              "Привет",
-              "Hallo",
-              "Ciao",
-              "Olá",
-            ]}
-          />
-          <h1 className=" text-gray-900 leading-tight mt-4 sm:mt-8 lg:mb-12 font-medium">
-            <span className="font-serif italic text-2xl lg:text-5xl">
-              I'm Firman
-            </span>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <Magnetic>
             <Image
-              src="/images/avatar2.png"
+              src="/images/avatar.png"
               alt="Firman"
               width={2048}
               height={2048}
-              className=" inline-block rounded-lg sm:rounded-xl lg:rounded-2xl border border-sm sm:border-2 border-white shadow-sm sm:shadow-md -rotate-6 mx-1 sm:mx-2 align-middle object-cover size-10 sm:size-14 lg:size-16"
+              className="inline-block rounded-xl sm:rounded-2xl border border-white sm:border-2 shadow-sm sm:shadow-md object-cover size-16 sm:size-20 lg:size-28 flex-shrink-0"
             />
-            <br className="sm:hidden" />
-            <span className="text-gray-500 opacity-60 text-lg lg:text-4xl">
-              Building{" "}
-            </span>
-            <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent font-semibold text-lg lg:text-4xl">
-              modern web
-            </span>
-            <span className="text-gray-500 opacity-60 text-lg lg:text-4xl">
-              {" "}
-              apps with{" "}
-            </span>
-            <br className="hidden sm:block" />{" "}
-            <span className="text-gray-900 text-lg lg:text-4xl">
-              {" "}
-              AI-driven{" "}
-            </span>
-            <Image
-              src="/icons/spark.svg"
-              alt="spark"
-              width={64}
-              height={64}
-              className="text-yellow-300 inline-block rounded-lg sm:rounded-xl lg:rounded-2xl border border-sm sm:border-2 border-white shadow-sm sm:shadow-md bg-blue-400 rotate-6 mx-1 sm:mx-2 align-middle object-cover w-10 sm:w-14 lg:w-16 h-auto "
-            />
-            <span className="text-gray-900 text-lg lg:text-4xl">features.</span>
-          </h1>
-
-          {/* Open to Work Badge */}
-          <div className="mt-2 inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full">
-            <span className="inline-block w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-xs sm:text-sm font-medium text-green-700">
-              Open to Work
-            </span>
+          </Magnetic>
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <h1 className="text-xl sm:text-3xl lg:text-4xl font-mono font-bold italic leading-tight text-gray-800">
+                Firman Aziz
+              </h1>
+              {/* Open to Work Badge */}
+              <div className="inline-flex items-center gap-1.5 px-2 py-1 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full h-fit flex-shrink-0">
+                <span className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-[10px] sm:text-xs font-medium text-green-700">
+                  Open to Work
+                </span>
+              </div>
+            </div>
+            <RotatingTextContainer
+              text={[
+                "Full-stack Developer",
+                "Ai-integrated",
+                "Vibe Coder",
+                "Product Designer",
+                "Human",
+              ]}
+            >
+              <RotatingText className="text-base sm:text-lg lg:text-2xl font-mono-nl text-gray-600" />
+            </RotatingTextContainer>
           </div>
         </div>
 
+        {/* Info Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 sm:gap-y-3 mt-4 mb-5 sm:mb-6 font-mono-nl">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <div className="p-1 sm:p-1.5 rounded-md bg-gray-100 border border-gray-200 flex-shrink-0">
+              <Briefcase size={14} className="sm:hidden text-gray-400" />
+              <Briefcase size={18} className="hidden sm:block text-gray-400" />
+            </div>
+            <span className="truncate">UI/UX Designer & Developer</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <div className="p-1 sm:p-1.5 rounded-md bg-gray-100 border border-gray-200 flex-shrink-0">
+              <MapPin size={14} className="sm:hidden text-gray-400" />
+              <MapPin size={18} className="hidden sm:block text-gray-400" />
+            </div>
+            <span className="truncate">Bandung, Indonesia</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <div className="p-1 sm:p-1.5 rounded-md bg-gray-100 border border-gray-200 flex-shrink-0">
+              <Mail size={14} className="sm:hidden text-gray-400" />
+              <Mail size={18} className="hidden sm:block text-gray-400" />
+            </div>
+            <span className="truncate">firman@example.com</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <div className="p-1 sm:p-1.5 rounded-md bg-gray-100 border border-gray-200 flex-shrink-0">
+              <Clock size={18} className="text-gray-400" />
+            </div>
+            <span className="truncate">WIB (UTC+7)</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <div className="p-1 sm:p-1.5 rounded-md bg-gray-100 border border-gray-200 flex-shrink-0">
+              <Globe size={18} className="text-gray-400" />
+            </div>
+            <a
+              href="https://gwfirman.vercel.app"
+              target="_blank"
+              className="truncate hover:text-gray-800 transition-colors"
+            >
+              gwfirman.vercel.app
+            </a>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <div className="p-1 sm:p-1.5 rounded-md bg-gray-100 border border-gray-200 flex-shrink-0">
+              <Code2 size={18} className="text-gray-400" />
+            </div>
+            <span className="truncate">Next.js, React, TypeScript</span>
+          </div>
+        </div>
+
+        {/* GitHub Contribution Graph */}
+
+        <GitHubContributionGraph username="GwFirman" useBlue={true} />
+
         {/* Chatbot Section - Added w-full */}
-        <div className="w-full relative z-10 transition-all duration-300">
+        <div className="w-full relative z-10 transition-all duration-300 mt-4">
           <ChatbotSection />
         </div>
       </div>
 
       {/* Scroll Down Button - Adjusted positioning */}
-      <div className="mt-8 relative z-10 animate-bounce self-center pb-safe">
-        <button
-          onClick={() => {
-            window.scrollTo({
-              top: window.innerHeight,
-              behavior: "smooth",
-            });
-          }}
-          className="p-2 bg-white/50 backdrop-blur-sm rounded-full shadow-lg border border-white/20 text-blue-500 hover:bg-white hover:scale-110 transition-all duration-300"
-          aria-label="Scroll down"
-        >
-          <ChevronDown size={24} />
-        </button>
-      </div>
+      <ScrollDownButton />
+
       {/* Background SVG */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="531"
@@ -176,7 +189,7 @@ export default function HeroSection() {
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 }
