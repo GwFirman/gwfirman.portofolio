@@ -14,7 +14,7 @@ export default function ScrollDownButton() {
             behavior: "smooth",
           });
         }}
-        className="p-2 bg-white/50 backdrop-blur-sm shadow-sm border border-white/20 text-blue-500 hover:bg-white hover:scale-110 transition-all duration-300"
+        className="p-2 bg-white/50 dark:bg-transparent backdrop-blur-sm  text-blue-500 hover:bg-white hover:scale-110 transition-all duration-300"
         aria-label="Scroll down"
       >
         <MotionGrid

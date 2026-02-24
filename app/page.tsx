@@ -16,6 +16,8 @@ import ProjectsSection from "./sections/ProjectsSection";
 import { MorphingText } from "@/components/ui/morphing-text";
 import ProfileSection from "./sections/ProfileSection";
 import GitHubSection from "./sections/GitHubSection";
+import ScrollDownButton from "@/components/ScrollDownButton";
+import ExperienceSection from "./sections/ExperienceSection";
 
 // Define skill data
 const skillsRow1: SkillTag[] = [
@@ -29,12 +31,13 @@ const skillsRow1: SkillTag[] = [
 
 export default function Component() {
   return (
-    <div className="min-h-screen max-w-4-xl lg:w-full bg-transparent">
+    <div className="min-h-screen max-w-4-xl lg:w-full dark:bg-gray-950">
       <Navigation />
       <HeroSection />
       <ProfileSection />
-      <ProjectsSection />
-      {/* <GitHubSection /> */}
+      {/* Scroll Down Button - Adjusted positioning */}
+      <ScrollDownButton />
+      <ExperienceSection />
     </div>
   );
 }

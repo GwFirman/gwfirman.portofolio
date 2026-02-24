@@ -126,7 +126,6 @@
   }
 }
 
-
 @theme inline {
   --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
   var(--delay, 0ms);
@@ -143,3 +142,7 @@
     }
   }
 }
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal; }

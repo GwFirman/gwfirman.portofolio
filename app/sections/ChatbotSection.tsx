@@ -156,15 +156,17 @@ export default function ChatbotSection() {
   return (
     <div
       ref={chatbotRef}
-      className="flex flex-col bg-white rounded-2xl border border-gray-200 overflow-hidden scroll-mt-32 font-mono-nl"
+      className="flex flex-col bg-white dark:bg-gray-900/30 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden scroll-mt-32 font-mono-nl"
     >
       {/* Display Area Header with Collapse Button - Only show when there's a message */}
-      <div className="flex items-center justify-between  px-6 py-3">
-        <h3 className="text-sm font-semibold text-gray-900">Ask About me</h3>
+      <div className="flex items-center justify-between dark:bg-gray-900 px-6 py-3">
+        <h3 className="text-sm font-semibold  text-gray-900 dark:text-gray-100">
+          Ask About me
+        </h3>
         {currentMessage && (
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-1.5 hover:bg-gray-200 rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900"
+            className="p-1.5 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
             title={isCollapsed ? "Expand" : "Collapse"}
           >
             {isCollapsed ? (
@@ -183,7 +185,7 @@ export default function ChatbotSection() {
         >
           {/* User Message */}
           <div className="flex justify-end">
-            <div className="max-w-xs bg-blue-500 text-white rounded-2xl rounded-tr-none px-4 py-3">
+            <div className="max-w-xs bg-blue-500 dark:bg-blue-950 text-white rounded-2xl rounded-tr-none px-4 py-3">
               <p className="text-sm">{currentMessage.text}</p>
             </div>
           </div>
@@ -201,9 +203,11 @@ export default function ChatbotSection() {
                       className="rounded-full object-cover"
                     />
                   </div>
-                  <p className="text-sm font-semibold text-gray-900">Firman</p>
+                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">
+                    Firman
+                  </p>
                 </div>
-                <div className="bg-gray-50 border border-gray-200 rounded-2xl rounded-tl-none px-4 py-3 ml-11">
+                <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-tl-none px-4 py-3 ml-11">
                   {/* GitHub Profile Card */}
                   {currentResponse.githubProfile && (
                     <div className="mb-3 bg-white rounded-lg border border-gray-200 p-3 sm:p-4 shadow-sm">
@@ -304,11 +308,11 @@ export default function ChatbotSection() {
                     </div>
                   )}
 
-                  <div className="text-sm text-gray-700 mb-3 prose prose-sm max-w-none">
+                  <div className="text-sm text-gray-700 dark:text-gray-300 mb-3 prose prose-sm dark:prose-invert max-w-none">
                     <ReactMarkdown
                       components={{
                         p: ({ children }) => (
-                          <p className="mb-2 last:mb-0 leading-relaxed">
+                          <p className="mb-2 last:mb-0 leading-relaxed dark:text-white">
                             {children}
                           </p>
                         ),
@@ -322,7 +326,7 @@ export default function ChatbotSection() {
                           <li className="mb-1">{children}</li>
                         ),
                         strong: ({ children }) => (
-                          <span className="font-semibold text-gray-900">
+                          <span className="font-semibold text-gray-900 dark:text-white">
                             {children}
                           </span>
                         ),
@@ -459,7 +463,7 @@ export default function ChatbotSection() {
                                 className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                                   isEmailLink
                                     ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-md hover:shadow-lg"
-                                    : "bg-white border border-blue-200 text-blue-600 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+                                    : "bg-white dark:text-white dark:bg-gray-900 border border-blue-200 text-blue-600 hover:bg-blue-500 hover:text-white hover:border-blue-500"
                                 }`}
                               >
                                 {link.label}
@@ -475,30 +479,29 @@ export default function ChatbotSection() {
             </div>
           )}
 
-          {/* Loading Animation */}
+          {/* Loading Skeleton */}
           {loading && (
             <div className="flex justify-start">
-              <div className="flex items-center gap-3">
-                <div className="relative w-8 h-8 flex-shrink-0">
-                  <Image
-                    src="/images/pasfotobg.png"
-                    alt="Firman"
-                    fill
-                    className="rounded-full object-cover"
-                  />
-                </div>
-                <div className="bg-gray-50 border border-gray-200 rounded-2xl rounded-tl-none px-4 py-3 ml-11">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                    <div
-                      className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                      style={{ animationDelay: "0.1s" }}
-                    />
-                    <div
-                      className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                      style={{ animationDelay: "0.2s" }}
+              <div className="max-w-2xl w-full">
+                {/* Avatar + name skeleton */}
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="relative w-8 h-8 flex-shrink-0">
+                    <Image
+                      src="/images/pasfotobg.png"
+                      alt="Firman"
+                      fill
+                      className="rounded-full object-cover"
                     />
                   </div>
+                  <div className="h-3.5 w-16 bg-gray-200 rounded-full animate-pulse" />
+                </div>
+                {/* Bubble skeleton */}
+                <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-tl-none px-4 py-4 ml-11 space-y-2.5">
+                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-full" />
+                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-[85%]" />
+                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-[70%]" />
+                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-[90%]" />
+                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-[55%]" />
                 </div>
               </div>
             </div>
@@ -507,7 +510,7 @@ export default function ChatbotSection() {
       )}
 
       {/* Input Area */}
-      <div className="bg-white px-6  pb-4">
+      <div className="bg-white px-6 dark:bg-gray-950 pb-4">
         {/* Textarea Input */}
         <div className="relative mb-3">
           <textarea
@@ -525,7 +528,7 @@ export default function ChatbotSection() {
                 ? "just ask my assistant what you need to know..."
                 : "In a rush? Let's skip the scrolling—just ask my assistant what you need to know..."
             }
-            className="w-full py-3 pr-12 rounded-xl focus:outline-none  text-sm resize-none overflow-y-auto"
+            className="w-full py-3 pr-12 rounded-xl focus:outline-none text-sm resize-none overflow-y-auto bg-transparent text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
             style={{
               height: textareaHeight || "40px",
               minHeight: "40px",
@@ -569,7 +572,7 @@ export default function ChatbotSection() {
                     setMessage(suggestion.message);
                   }}
                   disabled={loading}
-                  className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 text-xs rounded-full bg-gray-100 hover:bg-blue-50 disabled:opacity-50 border border-gray-300 hover:border-blue-400 text-gray-700 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap"
+                  className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 text-xs rounded-full bg-gray-100 dark:bg-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 disabled:opacity-50 border border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 whitespace-nowrap"
                   title={suggestion.label}
                 >
                   <IconComponent size={14} />
@@ -580,7 +583,7 @@ export default function ChatbotSection() {
           </div>
 
           {/* Send Button */}
-          <div className="border border-gray-200 p-1 rounded-xl">
+          <div className="border border-gray-200 dark:border-gray-700 p-1 rounded-xl">
             <button
               onClick={handleSendMessage}
               disabled={loading || !message.trim()}

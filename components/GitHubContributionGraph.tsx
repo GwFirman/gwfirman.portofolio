@@ -23,12 +23,28 @@ const LEVEL_COLORS_BLUE = [
   "#1d4ed8",
 ];
 
+const LEVEL_COLORS_BLUE_DARK = [
+  "#161b22",
+  "#1e3a5f",
+  "#1d4ed8",
+  "#3b82f6",
+  "#93c5fd",
+];
+
 const LEVEL_COLORS_GREEN = [
   "#ebedf0",
   "#9be9a8",
   "#40c463",
   "#30a14e",
   "#216e39",
+];
+
+const LEVEL_COLORS_GREEN_DARK = [
+  "#161b22",
+  "#0e4429",
+  "#006d32",
+  "#26a641",
+  "#39d353",
 ];
 
 function formatDate(dateStr: string) {
@@ -70,6 +86,7 @@ export default function GitHubContributionGraph({
   const [totalContributions, setTotalContributions] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState>({
     visible: false,
     x: 0,
@@ -79,7 +96,25 @@ export default function GitHubContributionGraph({
   });
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
-  const COLORS = useBlue ? LEVEL_COLORS_BLUE : LEVEL_COLORS_GREEN;
+  const COLORS = useBlue
+    ? isDark
+      ? LEVEL_COLORS_BLUE_DARK
+      : LEVEL_COLORS_BLUE
+    : isDark
+      ? LEVEL_COLORS_GREEN_DARK
+      : LEVEL_COLORS_GREEN;
+
+  useEffect(() => {
+    const update = () =>
+      setIsDark(document.documentElement.classList.contains("dark"));
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     getGitHubContributions(username)
@@ -166,17 +201,17 @@ export default function GitHubContributionGraph({
           </svg>
         </div>
         <div className="flex justify-between items-center mt-1">
-          <div className="h-3 w-40 bg-gray-200 rounded animate-pulse" />
+          <div className="h-3 w-40 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
           <div className="flex items-center gap-1">
-            <div className="h-3 w-6 bg-gray-200 rounded animate-pulse" />
+            <div className="h-3 w-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
-                className="rounded-sm bg-gray-200 animate-pulse"
+                className="rounded-sm bg-gray-200 dark:bg-gray-700 animate-pulse"
                 style={{ width: 12, height: 12 }}
               />
             ))}
-            <div className="h-3 w-6 bg-gray-200 rounded animate-pulse" />
+            <div className="h-3 w-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
           </div>
         </div>
       </div>
@@ -206,7 +241,7 @@ export default function GitHubContributionGraph({
               x={weekIndex * STEP}
               y={10}
               fontSize={11}
-              fill="#9ca3af"
+              fill={isDark ? "#6b7280" : "#9ca3af"}
             >
               {label}
             </text>
@@ -249,15 +284,17 @@ export default function GitHubContributionGraph({
 
       <div className="flex justify-between items-center">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-gray-500">
-            <span className="font-semibold text-gray-700">
+          <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="font-semibold text-gray-700 dark:text-gray-200">
               {totalContributions.toLocaleString()}
             </span>{" "}
             contributions in the last year
           </span>
         </div>
         <div className="flex items-center gap-1 justify-end">
-          <span className="text-xs text-gray-400 mr-1">Less</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500 mr-1">
+            Less
+          </span>
           {COLORS.map((color, i) => (
             <div
               key={i}
@@ -265,7 +302,9 @@ export default function GitHubContributionGraph({
               style={{ width: 12, height: 12, backgroundColor: color }}
             />
           ))}
-          <span className="text-xs text-gray-400 ml-1">More</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500 ml-1">
+            More
+          </span>
         </div>
       </div>
     </div>
