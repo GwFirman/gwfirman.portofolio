@@ -8,7 +8,6 @@ type Achievement = {
   event: string;
   organizer: string;
   year: string;
-  rank: string;
   icon: LucideIcon;
   color: string;
   bg: string;
@@ -21,10 +20,10 @@ const achievements: Achievement[] = [
     event: "LKS SMK Tingkat Kabupaten",
     organizer: "Dinas Pendidikan Kabupaten",
     year: "2025",
-    rank: "🥇 Juara 1",
+
     icon: Trophy,
     color: "text-yellow-500",
-    bg: "bg-yellow-50/20 dark:bg-yellow-950/20",
+    bg: "bg-blue-50/20 dark:bg-transparent",
     details: [
       "Merancang dan mengembangkan aplikasi web fullstack dalam waktu terbatas",
       "Menggunakan teknologi modern seperti React dan Node.js",
@@ -36,10 +35,10 @@ const achievements: Achievement[] = [
     event: "Tech Festival Nasional",
     organizer: "Universitas Indonesia",
     year: "2025",
-    rank: "🥈 Juara 2",
+
     icon: Medal,
     color: "text-gray-400",
-    bg: "bg-slate-50/20 dark:bg-slate-950/20",
+    bg: "bg-blue-50/20 dark:bg-transparent",
     details: [
       "Mendesain ulang aplikasi kesehatan digital dengan pendekatan user-centered",
       "Melakukan riset pengguna dan usability testing",
@@ -51,10 +50,10 @@ const achievements: Achievement[] = [
     event: "Hackathon Nasional",
     organizer: "Kementerian Kominfo",
     year: "2024",
-    rank: "🏆 Best Innovation",
+
     icon: Award,
     color: "text-cyan-500",
-    bg: "bg-cyan-50/20 dark:bg-cyan-950/20",
+    bg: "bg-blue-50/20 dark:bg-transparent",
     details: [
       "Mengembangkan solusi IoT untuk smart farming dalam 48 jam",
       "Integrasi sensor dan dashboard monitoring real-time",
@@ -66,10 +65,10 @@ const achievements: Achievement[] = [
     event: "OSN Tingkat Provinsi",
     organizer: "Kementerian Pendidikan",
     year: "2024",
-    rank: "⭐ Finalis",
+
     icon: Star,
     color: "text-purple-500",
-    bg: "bg-purple-50/20 dark:bg-purple-950/20",
+    bg: "bg-blue-50/20 dark:bg-transparent",
     details: [
       "Lolos seleksi tingkat kabupaten dan kota",
       "Menyelesaikan soal algoritma dan pemrograman kompetitif",
@@ -91,7 +90,7 @@ export default function AchievementSection() {
       {/* Timeline */}
       <div className="relative">
         {/* Vertical line */}
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-yellow-200 via-cyan-200 dark:from-gray-700 dark:via-gray-600 to-transparent hidden sm:block" />
+        <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-yellow-200  dark:from-gray-700 dark:via-gray-600 to-transparent hidden sm:block" />
 
         <div className="flex flex-col gap-10">
           {achievements.map((ach, idx) => (
@@ -104,7 +103,7 @@ export default function AchievementSection() {
 
               {/* Card */}
               <div
-                className={`rounded-xl border border-gray-200 dark:border-gray-700/60 ${ach.bg} p-5 sm:p-6`}
+                className={`rounded-md border border-gray-200 dark:border-gray-700/60 ${ach.bg} p-5 sm:p-6`}
               >
                 {/* Top row: icon + info + year */}
                 <div className="flex items-start gap-4">
@@ -122,12 +121,7 @@ export default function AchievementSection() {
                         </h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400 font-mono-nl mt-0.5">
                           {ach.event}
-                          <span className="mx-1.5 text-gray-300 dark:text-gray-600">
-                            ·
-                          </span>
-                          <span className="text-xs font-medium px-1.5 py-0.5 bg-white/70 dark:bg-gray-700/70 rounded border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400">
-                            {ach.rank}
-                          </span>
+
                         </p>
                       </div>
 

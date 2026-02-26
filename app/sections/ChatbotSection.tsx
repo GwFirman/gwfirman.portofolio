@@ -156,7 +156,7 @@ export default function ChatbotSection() {
   return (
     <div
       ref={chatbotRef}
-      className="flex flex-col bg-white dark:bg-gray-900/30 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden scroll-mt-32 font-mono-nl"
+      className="flex flex-col bg-white dark:bg-gray-900/30 rounded-md border border-gray-200 dark:border-gray-700 overflow-hidden scroll-mt-32 font-mono-nl"
     >
       {/* Display Area Header with Collapse Button - Only show when there's a message */}
       <div className="flex items-center justify-between dark:bg-gray-900 px-6 py-3">
@@ -287,7 +287,7 @@ export default function ChatbotSection() {
                       {/* Last Contribution */}
                       {currentResponse.githubProfile.lastContribution &&
                         currentResponse.githubProfile.lastContribution !==
-                          "N/A" && (
+                        "N/A" && (
                           <div className="text-[10px] sm:text-xs text-gray-600 text-center border-gray-200 pt-2 border-t">
                             Last contribution:{" "}
                             {currentResponse.githubProfile.lastContribution}
@@ -349,7 +349,7 @@ export default function ChatbotSection() {
                   {/* Business Card - After Text Response */}
                   {currentResponse.showBusinessCard &&
                     currentResponse.businessCard && (
-                      <div className="mb-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 ">
+                      <div className="mb-3 bg-white dark:bg-gray-900 rounded-md border border-gray-200 dark:border-gray-700 p-4 sm:p-6 ">
                         {/* Header */}
                         <div className="flex items-start gap-4 mb-4 pb-4 border-b border-gray-300 dark:border-gray-700">
                           <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
@@ -470,11 +470,10 @@ export default function ChatbotSection() {
                                 href={link.url}
                                 target={isEmailLink ? "_self" : "_blank"}
                                 rel="noopener noreferrer"
-                                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                                  isEmailLink
-                                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-md hover:shadow-lg"
-                                    : "bg-white dark:text-white dark:bg-gray-900 border border-blue-200 text-blue-600 hover:bg-blue-500 hover:text-white hover:border-blue-500"
-                                }`}
+                                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${isEmailLink
+                                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-md hover:shadow-lg"
+                                  : "bg-white dark:text-white dark:bg-gray-900 border border-blue-200 text-blue-600 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+                                  }`}
                               >
                                 {link.label}
                                 {!isEmailLink && <ExternalLink size={12} />}
@@ -535,12 +534,12 @@ export default function ChatbotSection() {
             }}
             placeholder={
               typeof window !== "undefined" &&
-              window.matchMedia &&
-              window.matchMedia("(max-width: 639px)").matches
+                window.matchMedia &&
+                window.matchMedia("(max-width: 639px)").matches
                 ? "just ask my assistant what you need to know..."
                 : "In a rush? Let's skip the scrolling—just ask my assistant what you need to know..."
             }
-            className="w-full py-3 pr-12 rounded-xl focus:outline-none text-sm resize-none overflow-y-auto bg-transparent text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
+            className="w-full py-3 pr-12 rounded-md focus:outline-none text-sm resize-none overflow-y-auto bg-transparent text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
             style={{
               height: textareaHeight || "40px",
               minHeight: "40px",
@@ -584,7 +583,7 @@ export default function ChatbotSection() {
                     setMessage(suggestion.message);
                   }}
                   disabled={loading}
-                  className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 text-xs rounded-full bg-gray-100 dark:bg-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 disabled:opacity-50 border border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 whitespace-nowrap"
+                  className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 text-xs rounded-md bg-gray-100 dark:bg-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 disabled:opacity-50 border border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 whitespace-nowrap"
                   title={suggestion.label}
                 >
                   <IconComponent size={14} />
@@ -600,11 +599,10 @@ export default function ChatbotSection() {
               onClick={handleSendMessage}
               disabled={loading || !message.trim()}
               aria-label="Send message"
-              className={`flex-shrink-0 p-2 rounded-lg transition-all duration-200 flex items-center justify-center shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-1 ${
-                loading || !message.trim()
-                  ? "bg-gray-500 text-white cursor-not-allowed dark:bg-gray-700"
-                  : "bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-800 dark:hover:bg-blue-900"
-              }`}
+              className={`flex-shrink-0 p-2 rounded-lg transition-all duration-200 flex items-center justify-center shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-1 ${loading || !message.trim()
+                ? "bg-gray-500 text-white cursor-not-allowed dark:bg-gray-700"
+                : "bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-800 dark:hover:bg-blue-900"
+                }`}
               title="Send message"
             >
               {loading ? (

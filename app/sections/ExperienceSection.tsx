@@ -14,21 +14,21 @@ type Experience = {
 };
 
 const experiences: Experience[] = [
-  {
-    company: "PT Puskomedia Indonesia Kreatif",
-    logo: "/placeholder-logo.png",
-    position: "Full Stack Developer",
-    type: "Part-time",
-    period: "Mar 2026 - Now",
-    location: "Purwokerto",
-    bg: "bg-blue-50/20 dark:bg-blue-950/30",
-    achievements: [
-      "Built reusable React component library used across multiple projects",
-      "Implemented state management with Zustand and React Query",
-      "Worked closely with backend developers to design API contracts",
-      "Reduced page load time by optimizing asset delivery and lazy loading",
-    ],
-  },
+  // {
+  //   company: "PT Puskomedia Indonesia Kreatif",
+  //   logo: "/placeholder-logo.png",
+  //   position: "Full Stack Developer",
+  //   type: "Part-time",
+  //   period: "Mar 2026 - Now",
+  //   location: "Purwokerto",
+  //   bg: "bg-blue-50/20 dark:bg-transparent",
+  //   achievements: [
+  //     "Built reusable React component library used across multiple projects",
+  //     "Implemented state management with Zustand and React Query",
+  //     "Worked closely with backend developers to design API contracts",
+  //     "Reduced page load time by optimizing asset delivery and lazy loading",
+  //   ],
+  // },
   {
     company: "CV Prabu Bima Tech",
     logo: "/images/logopb.png",
@@ -36,7 +36,7 @@ const experiences: Experience[] = [
     type: "Internship",
     period: "Sep 2025 - Jan 2026",
     location: "Purwokerto",
-    bg: "bg-blue-50/20 dark:bg-blue-950/30",
+    bg: "bg-blue-50/20 dark:bg-transparent",
     achievements: [
       "Developed and maintained web applications using Next.js and TypeScript",
       "Collaborated with the design team to implement responsive UI components",
@@ -46,12 +46,12 @@ const experiences: Experience[] = [
   },
   {
     company: "PT Nemolab Nusa Infomedia",
-    logo: "/images/logopb.png",
+    logo: "/images/nemolab.png",
     position: "Mobile Developer",
     type: "Internship",
     period: "Sep 2025 - Jan 2026",
     location: "Purwokerto",
-    bg: "bg-blue-50/20 dark:bg-blue-950/30",
+    bg: "bg-blue-50/20 dark:bg-transparent",
     achievements: [
       "Developed and maintained web applications using Next.js and TypeScript",
       "Collaborated with the design team to implement responsive UI components",
@@ -92,7 +92,7 @@ export default function ExperienceSection() {
                 {/* Top row: logo + info + period */}
                 <div className="flex items-start gap-4">
                   {/* Logo */}
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm flex items-center justify-center overflow-hidden">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-white dark:bg-gray-700/30 border border-gray-100 dark:border-gray-600 shadow-sm flex items-center justify-center overflow-hidden">
                     <Image
                       src={exp.logo}
                       alt={exp.company}

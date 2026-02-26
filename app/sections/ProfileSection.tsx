@@ -294,7 +294,7 @@ export default function ProfileSection() {
               className="flex items-center justify-center"
             >
               <div className="relative w-full aspect-square">
-                <div className="relative w-full h-full bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-2xl overflow-hidden">
+                <div className="relative w-full h-full bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-md overflow-hidden">
                   <Image
                     src="/images/piala.jpeg"
                     alt="Profile"

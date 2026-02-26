@@ -178,8 +178,8 @@ export default function GitHubContributionGraph({
                 width={20}
                 height={8}
                 rx={2}
-                fill="#e5e7eb"
-                className="animate-pulse"
+                fill="currentColor"
+                className="animate-pulse text-gray-200 dark:text-[#131313]"
               />
             ))}
             {/* Cell skeletons */}
@@ -192,8 +192,8 @@ export default function GitHubContributionGraph({
                   width={CELL}
                   height={CELL}
                   rx={2}
-                  fill="#e5e7eb"
-                  className="animate-pulse"
+                  fill="currentColor"
+                  className="animate-pulse text-gray-200 dark:text-[#131313]"
                   style={{ animationDelay: `${((wi + di) % 5) * 0.05}s` }}
                 />
               )),

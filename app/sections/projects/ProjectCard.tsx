@@ -61,12 +61,12 @@ export default function ProjectCard({
       </div>
 
       {/* Card Content */}
-      <Card className=" rounded-t-none dark:bg-none dark:bg-gray-950  border border-gray-200 dark:border-gray-700 rounded-b-lg">
+      <Card className=" rounded-t-none dark:bg-none dark:bg-gray-950  border border-gray-200 dark:border-gray-700/20 border-t-0 rounded-b-lg">
         <CardHeader className="border-t-0">
           <CardTitle>{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardHeader>
-        <CardContent className="">
+        <CardContent>
           <p className="text-sm font-semibold text-gray-900 dark:text-gray-100  mb-3">
             Tech Stack
           </p>
