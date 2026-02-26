@@ -1,6 +1,14 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 
 export interface DecorativeIcon {
   src: string;
@@ -75,35 +83,43 @@ export default function ProjectCard({
       className={`flex flex-col md:flex-row md:items-stretch relative md:w-[650px] md:aspect-video ${bgColor} rounded-2xl transition-all duration-300 md:overflow-hidden group max-w-sm md:max-w-7xl`}
     >
       {/* Image */}
-      <div className="relative w-full aspect-video md:absolute md:inset-0 md:w-auto md:h-auto md:aspect-auto overflow-hidden rounded-t-2xl md:rounded-2xl">
+      <div className="relative w-full aspect-square md:absolute md:inset-0 md:w-auto md:h-auto md:aspect-auto overflow-hidden rounded-t-2xl md:rounded-2xl">
         <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
       </div>
 
       {/* Mobile Info (below image, hidden on desktop) */}
-      <div className="md:hidden p-3 bg-white/90">
-        <h3 className="text-base font-semibold text-gray-800">{title}</h3>
-        <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">
-          {description}
-        </p>
-        <div className="flex flex-wrap gap-1.5 mt-2">
-          {tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className={`px-2 py-0.5 ${colors.tag} rounded-full text-xs border ${colors.tagBorder}`}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      <Card className="md:hidden rounded-t-none border-t-0 shadow-none rounded-b-2xl dark:bg-gray-900">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-base text-gray-800 dark:text-gray-100">
+            {title}
+          </CardTitle>
+          <CardDescription className="text-xs line-clamp-2">
+            {description}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pb-2">
+          <div className="flex flex-wrap gap-1.5">
+            {tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className={`px-2 py-0.5 ${colors.tag} rounded-full text-xs border ${colors.tagBorder}`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </CardContent>
         {buttonText && (
-          <button
-            className={`mt-3 w-full ${colors.button} ${colors.buttonHover} text-white px-4 py-1.5 rounded-lg transition-colors duration-200 text-xs font-medium`}
-            onClick={onButtonClick}
-          >
-            {buttonText}
-          </button>
+          <CardFooter>
+            <button
+              className={`w-full ${colors.button} ${colors.buttonHover} text-white px-4 py-1.5 rounded-lg transition-colors duration-200 text-xs font-medium`}
+              onClick={onButtonClick}
+            >
+              {buttonText}
+            </button>
+          </CardFooter>
         )}
-      </div>
+      </Card>
 
       {/* Hover Overlay (desktop only) */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">

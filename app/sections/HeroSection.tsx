@@ -57,7 +57,7 @@ export default function HeroSection() {
               alt="Firman"
               width={2048}
               height={2048}
-              className="inline-block rounded-xl sm:rounded-2xl border border-white sm:border-2 shadow-sm sm:shadow-md object-cover size-16 sm:size-20 lg:size-28 flex-shrink-0"
+              className="inline-block rounded-xl sm:rounded-2xl border border-white dark:border-gray-500 sm:border-2 shadow-sm sm:shadow-md object-cover size-16 sm:size-20 lg:size-28 flex-shrink-0"
             />
           </Magnetic>
           <div className="min-w-0">

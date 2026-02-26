@@ -23,7 +23,7 @@ export default function Navigation() {
     <>
       {/* Top Navbar — desktop only */}
       <nav className="hidden sm:flex fixed top-0 left-0 right-0 z-50 justify-center pt-6 font-mono-nl">
-        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-full px-6 lg:px-8 py-2 sm:py-3 shadow-sm border border-gray-200/50 dark:border-gray-700/50 mx-4">
+        <div className="bg-white/20 dark:bg-[#050505]/20 backdrop-blur-lg  rounded-full px-6 lg:px-8 py-2 sm:py-3 shadow-sm border border-gray-200/50 dark:border-gray-700/50 mx-4">
           <div className="flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <a

@@ -194,7 +194,7 @@ export default function ChatbotSection() {
           {currentResponse && (
             <div className="flex justify-start">
               <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 ">
                   <div className="relative w-8 h-8 flex-shrink-0">
                     <Image
                       src="/images/pasfotobg.png"
@@ -207,7 +207,7 @@ export default function ChatbotSection() {
                     Firman
                   </p>
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-tl-none px-4 py-3 ml-11">
+                <div className="rounded-2xl rounded-tl-none px-4 py-2 ml-7">
                   {/* GitHub Profile Card */}
                   {currentResponse.githubProfile && (
                     <div className="mb-3 bg-white rounded-lg border border-gray-200 p-3 sm:p-4 shadow-sm">
@@ -312,7 +312,7 @@ export default function ChatbotSection() {
                     <ReactMarkdown
                       components={{
                         p: ({ children }) => (
-                          <p className="mb-2 last:mb-0 leading-relaxed dark:text-white">
+                          <p className="mb-2 last:mb-0 leading-relaxed dark:text-gray-300">
                             {children}
                           </p>
                         ),
@@ -349,33 +349,33 @@ export default function ChatbotSection() {
                   {/* Business Card - After Text Response */}
                   {currentResponse.showBusinessCard &&
                     currentResponse.businessCard && (
-                      <div className="mb-3 bg-white rounded-xl border border-gray-200 p-4 sm:p-6 ">
+                      <div className="mb-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 ">
                         {/* Header */}
-                        <div className="flex items-start gap-4 mb-4 pb-4 border-b border-gray-300">
+                        <div className="flex items-start gap-4 mb-4 pb-4 border-b border-gray-300 dark:border-gray-700">
                           <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
                             <Image
                               src="/images/pasfotobg.png"
                               alt={currentResponse.businessCard.name}
                               fill
-                              className="rounded-full object-cover border-4 border-white shadow-md"
+                              className="rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-md"
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3">
                               {currentResponse.businessCard.name}
                             </h3>
-                            <div className="flex flex-wrap gap-3 text-xs sm:text-sm text-gray-600">
+                            <div className="flex flex-wrap gap-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                               <div className="flex items-center gap-1">
-                                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-gray-700 dark:text-gray-300" />
                                 <span>
                                   {currentResponse.businessCard.location}
                                 </span>
                               </div>
                               <div className="flex items-center gap-1">
-                                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-gray-700 dark:text-gray-300" />
                                 <a
                                   href={`mailto:${currentResponse.businessCard.email}`}
-                                  className="hover:text-blue-600 transition-colors truncate"
+                                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate text-gray-700 dark:text-gray-200"
                                 >
                                   {currentResponse.businessCard.email}
                                 </a>
@@ -386,25 +386,35 @@ export default function ChatbotSection() {
 
                         {/* Social Links */}
                         <div className="space-y-2">
-                          <p className="text-xs sm:text-sm font-semibold text-gray-700 mb-3">
+                          <p className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">
                             Connect with me:
                           </p>
                           <div className="grid grid-cols-2 gap-2">
                             {currentResponse.businessCard.socials.map(
                               (social, idx) => {
                                 const getIcon = (iconName?: string) => {
+                                  const baseIconClass =
+                                    "w-4 h-4 text-gray-700 dark:text-gray-200";
                                   switch (iconName) {
                                     case "github":
-                                      return <Github className="w-4 h-4" />;
+                                      return (
+                                        <Github className={baseIconClass} />
+                                      );
                                     case "linkedin":
-                                      return <Linkedin className="w-4 h-4" />;
+                                      return (
+                                        <Linkedin className={baseIconClass} />
+                                      );
                                     case "email":
-                                      return <Mail className="w-4 h-4" />;
+                                      return <Mail className={baseIconClass} />;
                                     case "web":
-                                      return <Globe className="w-4 h-4" />;
+                                      return (
+                                        <Globe className={baseIconClass} />
+                                      );
                                     default:
                                       return (
-                                        <ExternalLink className="w-4 h-4" />
+                                        <ExternalLink
+                                          className={baseIconClass}
+                                        />
                                       );
                                   }
                                 };
@@ -418,7 +428,7 @@ export default function ChatbotSection() {
                                     href={social.url}
                                     target={isEmail ? "_self" : "_blank"}
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-3 py-2.5 bg-white hover:bg-gradient-to-r text-gray-700  rounded-lg border border-gray-200 hover:border-transparent transition-all duration-200 shadow-sm hover:shadow-md group"
+                                    className="flex items-center gap-2 px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-200 shadow-sm hover:shadow-md group"
                                   >
                                     <span className="flex-shrink-0 group-hover:scale-110 transition-transform">
                                       {getIcon(social.icon)}
@@ -434,8 +444,8 @@ export default function ChatbotSection() {
                         </div>
 
                         {/* CTA Badge */}
-                        <div className="mt-4 pt-4 border-t border-gray-300 text-center">
-                          <p className="text-xs text-gray-600">
+                        <div className="mt-4 pt-4 border-t border-gray-300 dark:border-gray-700 text-center">
+                          <p className="text-xs text-gray-600 dark:text-gray-300">
                             💼 Available for collaborations and opportunities
                           </p>
                         </div>
@@ -493,10 +503,12 @@ export default function ChatbotSection() {
                       className="rounded-full object-cover"
                     />
                   </div>
-                  <div className="h-3.5 w-16 bg-gray-200 rounded-full animate-pulse" />
+                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">
+                    Firman
+                  </p>
                 </div>
                 {/* Bubble skeleton */}
-                <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-tl-none px-4 py-4 ml-11 space-y-2.5">
+                <div className="rounded-2xl rounded-tl-none px-4 py-4 ml-7 space-y-2.5">
                   <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-full" />
                   <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-[85%]" />
                   <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-[70%]" />
@@ -583,11 +595,16 @@ export default function ChatbotSection() {
           </div>
 
           {/* Send Button */}
-          <div className="border border-gray-200 dark:border-gray-700 p-1 rounded-xl">
+          <div className="border border-gray-200 dark:border-gray-700 dark:bg-gray-900 p-1 rounded-xl">
             <button
               onClick={handleSendMessage}
               disabled={loading || !message.trim()}
-              className="flex-shrink-0 bg-gradient-to-b from-blue-300 to-blue-500 hover:from-blue-400 hover:to-blue-600 disabled:from-gray-400 disabled:to-gray-400 text-white p-2 rounded-lg transition-all duration-200 flex items-center justify-center shadow-sm"
+              aria-label="Send message"
+              className={`flex-shrink-0 p-2 rounded-lg transition-all duration-200 flex items-center justify-center shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-1 ${
+                loading || !message.trim()
+                  ? "bg-gray-500 text-white cursor-not-allowed dark:bg-gray-700"
+                  : "bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-800 dark:hover:bg-blue-900"
+              }`}
               title="Send message"
             >
               {loading ? (

@@ -34,9 +34,8 @@ export default function Component() {
     <div className="min-h-screen max-w-4-xl lg:w-full dark:bg-gray-950">
       <Navigation />
       <HeroSection />
+      <ProjectsSection />
       <ProfileSection />
-      {/* Scroll Down Button - Adjusted positioning */}
-      <ScrollDownButton />
       <ExperienceSection />
     </div>
   );

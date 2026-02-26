@@ -9,7 +9,6 @@ type Experience = {
   position: string;
   type: string;
   period: string;
-  duration: string;
   location: string;
   achievements: string[];
   bg: string;
@@ -17,14 +16,28 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    company: "PT Puskomedia Indonesia Kreatif",
+    logo: "/placeholder-logo.png",
+    position: "Full Stack Developer",
+    type: "Part-time",
+    period: "Mar 2026 - Now",
+    location: "Purwokerto",
+    bg: "bg-blue-50/20 dark:bg-blue-950/30",
+    achievements: [
+      "Built reusable React component library used across multiple projects",
+      "Implemented state management with Zustand and React Query",
+      "Worked closely with backend developers to design API contracts",
+      "Reduced page load time by optimizing asset delivery and lazy loading",
+    ],
+  },
+  {
     company: "CV Prabu Bima Tech",
     logo: "/images/logopb.png",
     position: "Full Stack Developer",
     type: "Internship",
     period: "Sep 2025 - Jan 2026",
-    duration: "64mos",
     location: "Purwokerto",
-    bg: "from-blue-50 to-cyan-50",
+    bg: "bg-blue-50/20 dark:bg-blue-950/30",
     achievements: [
       "Developed and maintained web applications using Next.js and TypeScript",
       "Collaborated with the design team to implement responsive UI components",
@@ -33,19 +46,18 @@ const experiences: Experience[] = [
     ],
   },
   {
-    company: "PT Puskomedia Indonesia Kreatif",
-    logo: "/placeholder-logo.png",
-    position: "Full Stack Developer",
-    type: "Part-time",
-    period: "Mar 2026 - Now",
-    duration: "-",
+    company: "PT Nemolab Nusa Infomedia",
+    logo: "/images/logopb.png",
+    position: "Mobile Developer",
+    type: "Internship",
+    period: "Sep 2025 - Jan 2026",
     location: "Purwokerto",
-    bg: "from-purple-50 to-pink-50",
+    bg: "bg-blue-50/20 dark:bg-blue-950/30",
     achievements: [
-      "Built reusable React component library used across multiple projects",
-      "Implemented state management with Zustand and React Query",
-      "Worked closely with backend developers to design API contracts",
-      "Reduced page load time by optimizing asset delivery and lazy loading",
+      "Developed and maintained web applications using Next.js and TypeScript",
+      "Collaborated with the design team to implement responsive UI components",
+      "Integrated RESTful APIs and improved application performance by 30%",
+      "Participated in code reviews and agile sprint ceremonies",
     ],
   },
 ];
@@ -69,7 +81,7 @@ export default function ExperienceSection() {
       {/* Timeline */}
       <div className="relative">
         {/* Vertical line */}
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-blue-200 via-cyan-200 to-transparent hidden sm:block" />
+        <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-blue-200 via-cyan-200 dark:from-gray-700 dark:via-gray-600 to-transparent hidden sm:block" />
 
         <div className="flex flex-col gap-10">
           {experiences.map((exp, idx) => (
@@ -82,11 +94,11 @@ export default function ExperienceSection() {
               className="relative sm:pl-20"
             >
               {/* Timeline dot */}
-              <div className="absolute left-[18px] top-6 w-3 h-3 rounded-full bg-blue-400 border-2 border-white dark:border-gray-900 shadow hidden sm:block" />
+              <div className="absolute left-[18px] top-6 w-3 h-3 rounded-full bg-blue-400 dark:bg-blue-950 shadow hidden sm:block" />
 
               {/* Card */}
               <div
-                className={`rounded-xl border border-dashed border-gray-200 dark:border-gray-700 bg-gradient-to-br ${exp.bg} dark:from-gray-800/60 dark:to-gray-800/40 p-5 sm:p-6`}
+                className={`rounded-xl border border-gray-200 dark:border-gray-700/60 ${exp.bg} p-5 sm:p-6`}
               >
                 {/* Top row: logo + info + period */}
                 <div className="flex items-start gap-4">
@@ -125,7 +137,7 @@ export default function ExperienceSection() {
                           {exp.period}
                         </p>
                         <p className="text-xs text-gray-400 dark:text-gray-500 font-mono-nl mt-0.5">
-                          {exp.duration} · {exp.location}
+                          {exp.location}
                         </p>
                       </div>
                     </div>

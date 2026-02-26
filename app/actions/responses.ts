@@ -113,7 +113,7 @@ export async function getResponseByCategory(
     case "unknown":
     default:
       return {
-        text: `I'm not quite sure how to answer that specific question. 🤔\n\nMy assistant is trained to help you with:\n- 💻 My skills and technologies\n- 💼 Work experience\n- 🚀 Projects I've built\n- 🏆 Achievements and awards\n- 📱 GitHub profile\n- 📧 How to contact me\n\n**Have something else in mind?**\nI'd love to hear from you directly! Feel free to reach out for any questions, collaborations, or opportunities.`,
+        text: `I'm not quite sure how to answer that specific question. \n**Have something else in mind?**\nI'd love to hear from you directly! Feel free to reach out for any questions, collaborations, or opportunities.`,
         showBusinessCard: true,
         businessCard: {
           name: "Firman Aziz",

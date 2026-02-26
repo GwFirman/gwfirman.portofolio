@@ -27,7 +27,7 @@ export default function ProfileSection() {
         initial={{ x: -600, opacity: 0 }}
         animate={isInView ? { x: -100, opacity: 0.9 } : { x: -600, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="pointer-events-none absolute left-0 top-24 -z-10 hidden md:block"
+        className="pointer-events-none absolute left-0 top-24 -z-10 dark:z-50 hidden md:block"
       >
         <div className="p-20 ">
           <MotionGrid
@@ -145,7 +145,7 @@ export default function ProfileSection() {
         initial={{ x: 600, opacity: 0 }}
         animate={isInView ? { x: 100, opacity: 0.85 } : { x: 600, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        className="pointer-events-none absolute right-0 bottom-24 -z-10 hidden md:block"
+        className="pointer-events-none absolute right-0 bottom-24 -z-10  dark:z-50 hidden md:block"
       >
         <div className="p-20 ">
           <MotionGrid
@@ -334,48 +334,116 @@ export default function ProfileSection() {
                       name: "React",
                       icon: "/icons/react-svgrepo-com.svg",
                       bg: "from-cyan-50 to-sky-50",
+                      darkBg: "dark:from-cyan-500/30 dark:to-sky-500/30",
                       text: "text-cyan-600",
+                      darkText: "dark:text-cyan-300",
                       border: "border-cyan-400",
+                      darkBorder: "dark:border-cyan-500/50",
                     },
                     {
                       name: "Next.js",
                       icon: "/icons/next-js-svgrepo-com.svg",
                       bg: "from-gray-50 to-slate-50",
+                      darkBg: "dark:from-gray-500/30 dark:to-slate-500/30",
                       text: "text-gray-700",
+                      darkText: "dark:text-gray-300",
                       border: "border-gray-400",
+                      darkBorder: "dark:border-gray-500/50",
                     },
                     {
                       name: "TypeScript",
                       icon: "/icons/typescript-official-svgrepo-com.svg",
                       bg: "from-blue-50 to-indigo-50",
+                      darkBg: "dark:from-blue-500/30 dark:to-indigo-500/30",
                       text: "text-blue-600",
+                      darkText: "dark:text-blue-300",
                       border: "border-blue-400",
+                      darkBorder: "dark:border-blue-500/50",
                     },
                     {
                       name: "Node.js",
                       icon: "/icons/node-js-svgrepo-com.svg",
                       bg: "from-green-50 to-emerald-50",
+                      darkBg: "dark:from-green-500/30 dark:to-emerald-500/30",
                       text: "text-green-600",
+                      darkText: "dark:text-green-300",
                       border: "border-green-400",
+                      darkBorder: "dark:border-green-500/50",
                     },
                     {
                       name: "PostgreSQL",
                       icon: "/icons/postgresql-svgrepo-com.svg",
                       bg: "from-indigo-50 to-blue-50",
+                      darkBg: "dark:from-indigo-500/30 dark:to-blue-500/30",
                       text: "text-indigo-600",
+                      darkText: "dark:text-indigo-300",
                       border: "border-indigo-400",
+                      darkBorder: "dark:border-indigo-500/50",
+                    },
+                    {
+                      name: "Laravel",
+                      icon: "/icons/laravel-svgrepo-com.svg",
+                      bg: "from-red-50 to-red-50",
+                      darkBg: "dark:from-red-500/30 dark:to-red-500/30",
+                      text: "text-red-600",
+                      darkText: "dark:text-red-300",
+                      border: "border-red-400",
+                      darkBorder: "dark:border-red-500/50",
+                    },
+                    {
+                      name: "MySQL",
+                      icon: "/icons/mysql-svgrepo-com.svg",
+                      bg: "from-blue-50 to-blue-50",
+                      darkBg: "dark:from-blue-500/30 dark:to-blue-500/30",
+                      text: "text-blue-600",
+                      darkText: "dark:text-blue-300",
+                      border: "border-blue-400",
+                      darkBorder: "dark:border-blue-500/50",
+                    },
+                    {
+                      name: "Supabase",
+                      icon: "/icons/supabase.svg",
+                      bg: "from-emerald-50 to-emerald-50",
+                      darkBg: "dark:from-emerald-500/30 dark:to-emerald-500/30",
+                      text: "text-emerald-600",
+                      darkText: "dark:text-emerald-300",
+                      border: "border-emerald-400",
+                      darkBorder: "dark:border-emerald-500/50",
+                    },
+                    {
+                      name: "Python",
+                      icon: "/icons/python-svgrepo-com.svg",
+                      bg: "from-yellow-50 to-yellow-50",
+                      darkBg: "dark:from-yellow-500/30 dark:to-yellow-500/30",
+                      text: "text-blue-600",
+                      darkText: "dark:text-yellow-300",
+                      border: "border-blue-400",
+                      darkBorder: "dark:border-yellow-500/50",
+                    },
+                    {
+                      name: "Hugginface",
+                      icon: "/icons/hf-logo.svg",
+                      bg: "from-yellow-50 to-yellow-50",
+                      darkBg: "dark:from-yellow-500/30 dark:to-yellow-500/30",
+                      text: "text-yellow-600",
+                      darkText: "dark:text-yellow-300",
+                      border: "border-yellow-400",
+                      darkBorder: "dark:border-yellow-500/50",
                     },
                     {
                       name: "Github",
                       icon: "/icons/github-142-svgrepo-com.svg",
                       bg: "from-slate-50 to-slate-50",
+                      darkBg: "dark:from-slate-500/30 dark:to-slate-500/30",
                       text: "text-slate-600",
+                      darkText: "dark:text-slate-300",
                       border: "border-slate-400",
+                      darkBorder: "dark:border-slate-500/50",
                     },
                   ].map((skill, idx) => (
                     <span
                       key={idx}
-                      className={`flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r ${skill.bg} ${skill.text} text-sm rounded-sm border border-dashed ${skill.border} dark:bg-none dark:bg-gray-800/60 dark:border-gray-600 dark:text-gray-300`}
+                      className={`flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r ${skill.bg} ${skill.darkBg} ${skill.text} ${skill.darkText} text-sm rounded-sm border border-dashed ${skill.border} ${skill.darkBorder}`}
                     >
                       <Image
                         src={skill.icon}

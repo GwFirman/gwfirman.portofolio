@@ -6,18 +6,17 @@ import { motion, useInView } from "motion/react";
 
 export default function ProjectsSection() {
   return (
-    <div className="px-4 sm:px-6 lg:px-64">
+    <div className="px-4 sm:px-6  mx-auto max-w-4xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mb-16"
+        className="mb-4"
       >
-        <h2 className="text-2xl sm:text-5xl font-bold text-gray-900 mb-2 sm:mb-4">
-          My Works
+        <h2 className="text-2xl font-mono-nl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-2 sm:mb-4 italic">
+          About Me
         </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" />
       </motion.div>
 
       <div className="mx-auto mb-8 lg:mb-16">
