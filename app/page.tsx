@@ -1,6 +1,5 @@
 "use client";
 
-import Navigation from "@/components/Navigation";
 import HeroSection from "./sections/HeroSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import ProfileSection from "./sections/ProfileSection";
@@ -10,10 +9,9 @@ import AchievementSection from "./sections/AchievementSection";
 export default function Component() {
   return (
     <div className="min-h-screen max-w-4-xl lg:w-full dark:bg-gray-950">
-      <Navigation />
       <HeroSection />
-      <ProjectsSection />
       <ProfileSection />
+      <ProjectsSection />
       <ExperienceSection />
       <AchievementSection />
     </div>

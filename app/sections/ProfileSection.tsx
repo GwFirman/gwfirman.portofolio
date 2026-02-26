@@ -13,6 +13,7 @@ export default function ProfileSection() {
 
   return (
     <section
+      id="profile"
       ref={sectionRef}
       className="relative min-h-screen px-4 sm:px-8 lg:px-16 py-20 flex items-center overflow-hidden"
     >

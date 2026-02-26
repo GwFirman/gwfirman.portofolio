@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import Image from "next/image";
 
 type Experience = {
@@ -66,17 +65,11 @@ export default function ExperienceSection() {
   return (
     <section className="px-4 sm:px-0 max-w-4xl mx-auto py-20">
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-12"
-      >
+      <div className="mb-12">
         <h2 className="text-2xl font-mono-nl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-2 sm:mb-4 italic">
           Experience
         </h2>
-      </motion.div>
+      </div>
 
       {/* Timeline */}
       <div className="relative">
@@ -85,12 +78,8 @@ export default function ExperienceSection() {
 
         <div className="flex flex-col gap-10">
           {experiences.map((exp, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              viewport={{ once: true }}
               className="relative sm:pl-20"
             >
               {/* Timeline dot */}
@@ -160,7 +149,7 @@ export default function ExperienceSection() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

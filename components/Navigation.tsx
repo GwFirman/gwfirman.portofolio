@@ -12,9 +12,9 @@ import {
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 
 const navItems = [
-  { label: "Who am I?", href: "#", icon: User },
-  { label: "Work", href: "#", icon: Briefcase },
-  { label: "Guest Book", href: "#", icon: BookOpen },
+  { label: "Who am I?", href: "/#profile", icon: User },
+  { label: "Work", href: "/#works", icon: Briefcase },
+  { label: "Guest Book", href: "/guestbook", icon: BookOpen },
   { label: "Connect", href: "#", icon: Link2 },
 ];
 

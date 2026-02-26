@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─── JetBrains Mono ─────────────────────────────────────── */
 @font-face { font-family: 'JetBrains Mono'; src: url('/fonts/JetBrainsMono-Thin.ttf') format('truetype'); font-weight: 100; font-style: normal; font-display: swap; }
 @font-face { font-family: 'JetBrains Mono'; src: url('/fonts/JetBrainsMono-ThinItalic.ttf') format('truetype'); font-weight: 100; font-style: italic; font-display: swap; }
